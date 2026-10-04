@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research — Sawan Ade | AI/ML Researcher & Builder</title>
+  <meta name="description" content="Research interests, pillars, and active open questions explored by Sawan Ade: Agentic AI, Multi-Agent Reasoning, LLM Evaluation, and Scientific ML.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="shell">
+    <!-- Navigation -->
+    <nav>
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        SAWAN ADE
+      </a>
+      <div class="links">
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="publications.html">Publications</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a class="btn nav-btn" href="contact.html">Collaborate</a>
+        <button class="menu-btn" aria-label="Toggle navigation menu" id="menuToggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <span class="brand"><span class="brand-dot"></span> SAWAN ADE</span>
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+      </div>
+      <div class="drawer-links">
+        <a href="index.html"><span class="drawer-num">01</span> Home</a>
+        <a href="about.html"><span class="drawer-num">02</span> About</a>
+        <a href="research.html"><span class="drawer-num">03</span> Research</a>
+        <a href="projects.html"><span class="drawer-num">04</span> Projects</a>
+        <a href="experience.html"><span class="drawer-num">05</span> Experience</a>
+        <a href="education.html"><span class="drawer-num">06</span> Education</a>
+        <a href="publications.html"><span class="drawer-num">07</span> Publications & Notes</a>
+        <a href="achievements.html"><span class="drawer-num">08</span> Achievements</a>
+        <a href="contact.html"><span class="drawer-num">09</span> Contact</a>
+      </div>
+      <div class="drawer-footer">
+        <a href="resume.html" class="btn main full-width">View Resume / CV</a>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <!-- Header -->
+    <section class="page-head">
+      <div class="label">Research Philosophy & Focus</div>
+      <div class="section-head">
+        <div>
+          <h2>Exploring the frontiers of<br><span class="italic-word">reasoning</span> and discovery.</h2>
+        </div>
+        <p>
+          I investigate how neural systems can escape superficial pattern matching to autonomously plan, deliberate, evaluate, and discover physical invariants.
+        </p>
+      </div>
+    </section>
+
+    <!-- Research Pillars Cards -->
+    <section style="padding-top: 30px;">
+      <div class="label">Research Pillars</div>
+      
+      <div class="grid">
+        <!-- Pillar 1: Agentic AI -->
+        <div class="card">
+          <div class="card-top">
+            <span class="card-number">PILLAR 01</span>
+            <span class="tag accent">Autonomy & Planning</span>
+          </div>
+          <h3>Agentic AI</h3>
+          <p>
+            Building systems capable of goal-directed planning, environment interaction, error reflection, and persistent state management. Moving from one-shot text completion to iterative execution environments where models navigate tool APIs, search spaces, and long-horizon tasks.
+          </p>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">LangGraph</span>
+              <span class="tag">Planning Loops</span>
+              <span class="tag">Tool Use</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Multi-Agent Systems -->
+        <div class="card">
+          <div class="card-top">
+            <span class="card-number">PILLAR 02</span>
+            <span class="tag accent">Coordination</span>
+          </div>
+          <h3>Multi-Agent Reasoning</h3>
+          <p>
+            Investigating distributed problem solving where distinct agents assume specialized roles (generator, critic, verifier, synthesizer). Examining communicative topologies and debate protocols that yield stronger epistemic outcomes than homogeneous scaling.
+          </p>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">Deliberation</span>
+              <span class="tag">Consensus</span>
+              <span class="tag">Orchestration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3: LLM Evaluation -->
+        <div class="card">
+          <div class="card-top">
+            <span class="card-number">PILLAR 03</span>
+            <span class="tag highlight">Measurement</span>
+          </div>
+          <h3>LLM Evaluation & Judges</h3>
+          <p>
+            Developing verifiable, game-theoretically sound evaluation rubrics. Addressing the pervasive failure modes of "LLM-as-a-judge" setups—including position bias, length bias, sycophancy, and self-preference—via calibration and structured verification games.
+          </p>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">Judge Reliability</span>
+              <span class="tag">Bias Mitigation</span>
+              <span class="tag">Game Theory</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 4: Scientific Machine Learning -->
+        <div class="card">
+          <div class="card-top">
+            <span class="card-number">PILLAR 04</span>
+            <span class="tag highlight">Scientific ML</span>
+          </div>
+          <h3>Scientific Machine Learning</h3>
+          <p>
+            Integrating physical principles and dynamical laws with modern deep learning. Utilizing neural ordinary differential equations (Neural ODEs), autograd derivative extraction, and sparse symbolic regression (SINDy) to discover governing equations directly from trajectories.
+          </p>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">PyTorch Autograd</span>
+              <span class="tag">SINDy</span>
+              <span class="tag">Dynamical Systems</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 5: NLP & Foundation Architectures -->
+        <div class="card">
+          <div class="card-top">
+            <span class="card-number">PILLAR 05</span>
+            <span class="tag">Foundations</span>
+          </div>
+          <h3>NLP & Representation Learning</h3>
+          <p>
+            Studying attention mechanisms, context compression, retrieval-augmented generation (RAG), and token dynamics. Understanding how internal representations capture relational knowledge and how architectural alterations affect downstream generalization.
+          </p>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">Transformers</span>
+              <span class="tag">RAG</span>
+              <span class="tag">PyTorch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 6: Computer Vision & Sparse Geometry -->
+        <div class="card">
+          <div class="card-top">
+            <span class="card-number">PILLAR 06</span>
+            <span class="tag">Geometry & Sparsity</span>
+          </div>
+          <h3>Computer Vision & Sparse DL</h3>
+          <p>
+            Exploring representation learning in high-dimensional and non-Euclidean spaces. Designing sparse convolutional neural networks, autoencoder pretraining regimes, and pruning schedules for spatially sparse sensor grids and particle collision detectors.
+          </p>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">Sparse CNNs</span>
+              <span class="tag">Autoencoders</span>
+              <span class="tag">Pruning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 7: Machine Learning & Statistical Foundations -->
+        <div class="card" style="grid-column: span 2;">
+          <div class="card-top">
+            <span class="card-number">PILLAR 07</span>
+            <span class="tag">Inference & Ensembles</span>
+          </div>
+          <h3>Machine Learning & Statistical Foundations</h3>
+          <p>
+            Grounding empirical models in statistical learning theory, optimization dynamics, and Bayesian inference. Applying robust tree ensembles (XGBoost, LightGBM, CatBoost) and sequential architectures to real-world geospatial, environmental, and physical datasets where calibration is paramount.
+          </p>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">Statistical Inference</span>
+              <span class="tag">Ensemble Methods</span>
+              <span class="tag">Optimization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current Open Questions Section -->
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="label">Open Research Inquiries</div>
+          <h2>Current questions<br>I'm chasing.</h2>
+        </div>
+        <p>
+          These inquiries represent my ongoing intellectual investigations and reading directions, framed as formal research questions.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="inquiry-card">
+          <div class="inquiry-id">QUESTION 01 · MULTI-AGENT VERIFICATION</div>
+          <h3>How can multiple agents collaborate to produce more reliable reasoning?</h3>
+          <p>
+            Single-model reasoning chains are notoriously susceptible to cascade errors: an early incorrect premise compounds into an erroneous conclusion. Can we formulate multi-agent debate protocols with game-theoretic verification mechanisms where counter-arguments force models to identify and self-correct subtle logical fallacies?
+          </p>
+        </div>
+
+        <div class="inquiry-card">
+          <div class="inquiry-id">QUESTION 02 · NON-GAMEABLE EVALUATION</div>
+          <h3>How can LLM judges be made genuinely reliable and unbiased?</h3>
+          <p>
+            Automated LLM judges frequently reward superficial verbosity and exhibit severe positional preferences. Can mechanism design, reference-free verification games, and paired counterfactual sampling establish evaluation metrics that correlate reliably with rigorous human truth?
+          </p>
+        </div>
+
+        <div class="inquiry-card">
+          <div class="inquiry-id">QUESTION 03 · EQUATION DISCOVERY FROM NOISE</div>
+          <h3>How can scientific structure be recovered from learned representations?</h3>
+          <p>
+            When observing complex physical systems (such as stochastic epidemic spreads or fluid dynamics), how can neural networks learn continuous state approximations and derivative surfaces so that sparse regression can reliably extract the true governing differential equations, even under measurement noise?
+          </p>
+        </div>
+
+        <div class="inquiry-card">
+          <div class="inquiry-id">QUESTION 04 · DYNAMIC MEMORY & CONCEPT GRAPH EVOLUTION</div>
+          <h3>How should personal knowledge representations decay, link, and evolve over time?</h3>
+          <p>
+            Human intellect is not a flat document store; it is an associative semantic network where memories evolve, connections form across distant domains, and older ideas recede until re-triggered. How can we formulate computational ontologies that mirror this organic cognitive topology?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ethos & Methodology -->
+    <section>
+      <div class="label">Laboratory Ethos</div>
+      <div class="section-head">
+        <div>
+          <h2>Research methodology.</h2>
+        </div>
+        <p>
+          A commitment to transparent experiments, reproducible codebases, and intellectual honesty.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-number">01</div>
+          <h3 style="margin-top:10px;">Reproducible Codebases</h3>
+          <p>
+            Every experiment, from toy simulation to large training runs, is organized with deterministic seeds, fixed environments, and complete open code repositories.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">02</div>
+          <h3 style="margin-top:10px;">Honest Negative Results</h3>
+          <p>
+            Understanding what architectures fail and where methods break down is just as informative as peak metrics. Negative results clarify the actual mechanism of action.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">03</div>
+          <h3 style="margin-top:10px;">Interdisciplinary Cross-Pollination</h3>
+          <p>
+            Drawing techniques from statistical physics, dynamical systems, and economics to enrich neural architectures and agentic mechanisms.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: 36px; display:flex; gap:14px; flex-wrap:wrap;">
+        <a class="btn main" href="publications.html">View Working Papers & Notes <span class="btn-arrow">→</span></a>
+        <a class="btn" href="projects.html">Explore Implemented Codebases <span class="btn-arrow">↗</span></a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h4>SAWAN ADE</h4>
+          <p>
+            Undergraduate in Data Science & Engineering at IISER Bhopal. Researching agentic AI, multi-agent systems, and scientific ML.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="projects.html">Projects</a>
+            <a href="experience.html">Experience</a>
+          </div>
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Academic</span>
+            <a href="education.html">Education</a>
+            <a href="publications.html">Publications & Notes</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="resume.html">Resume / CV</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Connect</span>
+            <a href="https://github.com/sawan-ade" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/SawanAde/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="mailto:adeysawan@gmail.com">Email ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sawan Ade · IISER Bhopal · Built for GitHub Pages</span>
+        <a href="#" class="back-to-top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Mirror — Sawan Ade | AI/ML Case Study</title>
+  <meta name="description" content="The Mirror: An AI-powered interactive visualization transforming unstructured thoughts and notes into a living celestial planetarium of your intellectual world.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="shell">
+    <!-- Navigation -->
+    <nav>
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        SAWAN ADE
+      </a>
+      <div class="links">
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="publications.html">Publications</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a class="btn nav-btn" href="contact.html">Collaborate</a>
+        <button class="menu-btn" aria-label="Toggle navigation menu" id="menuToggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <span class="brand"><span class="brand-dot"></span> SAWAN ADE</span>
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+      </div>
+      <div class="drawer-links">
+        <a href="index.html"><span class="drawer-num">01</span> Home</a>
+        <a href="about.html"><span class="drawer-num">02</span> About</a>
+        <a href="research.html"><span class="drawer-num">03</span> Research</a>
+        <a href="projects.html"><span class="drawer-num">04</span> Projects</a>
+        <a href="experience.html"><span class="drawer-num">05</span> Experience</a>
+        <a href="education.html"><span class="drawer-num">06</span> Education</a>
+        <a href="publications.html"><span class="drawer-num">07</span> Publications & Notes</a>
+        <a href="achievements.html"><span class="drawer-num">08</span> Achievements</a>
+        <a href="contact.html"><span class="drawer-num">09</span> Contact</a>
+      </div>
+      <div class="drawer-footer">
+        <a href="resume.html" class="btn main full-width">View Resume / CV</a>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <!-- Back to Projects -->
+    <div style="margin-top: 36px;">
+      <a href="projects.html" class="meta-link" style="color:var(--muted); font-size:13.5px; font-family:var(--mono);">← Back to All Projects</a>
+    </div>
+
+    <!-- Deep Dive Hero -->
+    <section class="deep-dive-hero" style="position:relative; overflow:hidden;">
+      <canvas id="mirrorCanvas" class="hero-canvas" style="right:-5%; width:60%; opacity:0.4;"></canvas>
+      <div style="position:relative; z-index:2;">
+        <div class="label">Featured Project Deep Dive</div>
+        <h1 class="deep-dive-title">The Mirror</h1>
+        <p class="deep-dive-lead">
+          “Your thoughts, reflected back to you.” An AI-powered interactive visualization system that transforms unstructured thoughts, notes, journals, and ideas into a living planetarium of an intellectual world.
+        </p>
+
+        <div class="buttons">
+          <a class="btn main" href="https://github.com/sawan-ade/The-Mirror" target="_blank" rel="noopener">Explore Code on GitHub <span class="btn-arrow">↗</span></a>
+          <a class="btn" href="#architecture">Inspect Architecture <span class="btn-arrow">↓</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky Case Study Sub-Nav -->
+    <div class="study-nav">
+      <div class="study-nav-list">
+        <a href="#overview">01 — Overview</a>
+        <a href="#problem">02 — Problem</a>
+        <a href="#approach">03 — Approach</a>
+        <a href="#architecture">04 — Architecture</a>
+        <a href="#results">05 — Capabilities</a>
+        <a href="#technologies">06 — Technologies</a>
+        <a href="#github">07 — GitHub</a>
+      </div>
+    </div>
+
+    <!-- 01 — Overview -->
+    <section class="study-section" id="overview">
+      <div class="study-sec-num">SECTION 01</div>
+      <h3>Overview</h3>
+      <p>
+        Human thought is non-linear, multi-modal, and fluid. We record insights in fragmented journal entries, brief audio snippets, captured images, and half-formed notes. Yet, conventional note-taking platforms force this dynamic cognition into static hierarchical trees or chronological feeds where ideas inevitably wither away.
+      </p>
+      <p>
+        <strong>The Mirror</strong> re-imagines personal knowledge as an active, living celestial system. Concepts exist as luminous stars whose gravitational attraction reflects semantic affinity. Clusters form galaxies of interest, while temporal scrubbers allow users to witness the emergence, branching, and decay of their thoughts over days, months, and years.
+      </p>
+
+      <div class="diagram-box">
+        <div class="kicker" style="margin-bottom:12px;">SYSTEM DESIGN ARCHITECTURE</div>
+        <div style="font-family:var(--mono); font-size:13px; line-height:1.7; color:#c5c5d2;">
+          [Unstructured Input: Text / Voice / Photos]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+          [Claude Sonnet Extraction & Semantic Parsing Engine]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+          [Relational & Temporal Knowledge Graph + Memory Anchors]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+          [Canvas 2D Celestial Force Simulation & Interactive Planetarium UI]
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — Problem -->
+    <section class="study-section" id="problem">
+      <div class="study-sec-num">SECTION 02</div>
+      <h3>The Problem</h3>
+      <p>
+        Digital knowledge capture suffers from three persistent failure modes:
+      </p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-number">ISSUE 01</div>
+          <h3 style="margin-top:8px;">The Flat-File Cemetery</h3>
+          <p>
+            When notes are organized in folders or flat files, finding relationships between disparate concepts requires manual linking. As the archive grows, older insights are buried and rarely revisited.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-number">ISSUE 02</div>
+          <h3 style="margin-top:8px;">Lack of Temporal Context</h3>
+          <p>
+            Most tools treat thoughts as timeless text strings, stripping away the context of how an intellectual passion blossomed, migrated into an adjacent domain, or cooled off over time.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-number">ISSUE 03</div>
+          <h3 style="margin-top:8px;">Sensory Disconnection</h3>
+          <p>
+            Thoughts are frequently anchored to sensory cues—a voice recording made during a late-night walk, or a photograph of a whiteboard diagram. Standard note apps strip away this multi-modal resonance.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-number">ISSUE 04</div>
+          <h3 style="margin-top:8px;">Absence of Reflective Feedback</h3>
+          <p>
+            Traditional note archives are passive repositories. They cannot talk back, reveal hidden contradictions, or prompt the user with forgotten hypotheses.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — Approach -->
+    <section class="study-section" id="approach">
+      <div class="study-sec-num">SECTION 03</div>
+      <h3>The Approach</h3>
+      <p>
+        The Mirror approaches personal knowledge through the metaphor of an evolving celestial planetarium:
+      </p>
+      <p>
+        1. <strong>Semantic Gravitational Physics:</strong> Nodes representing concepts are subject to physical force simulation. Concepts that share conceptual relationships, mutual references, or thematic overlaps attract each other, forming organic solar systems and constellations.
+      </p>
+      <p>
+        2. <strong>Multi-Modal Anchoring:</strong> Users attach photographic visual anchors and voice memos directly to nodes, creating rich, sensory-anchored landmarks within the constellation.
+      </p>
+      <p>
+        3. <strong>Living Evolution & Decay Dynamics:</strong> Nodes possess timestamps and interaction metrics. Fresh concepts burn with high luminance, while older unvisited nodes gently dim, simulating human memory decay until serendipitously reignited by new queries.
+      </p>
+    </section>
+
+    <!-- 04 — Architecture & Core Systems -->
+    <section class="study-section" id="architecture">
+      <div class="study-sec-num">SECTION 04</div>
+      <h3>Architecture & Core Systems</h3>
+      <p>
+        The system is decomposed into specialized interactive subsystems:
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-number">FEATURE 01</div>
+          <h3 style="margin-top:8px;">Galaxy Thought Map</h3>
+          <p>
+            A high-performance HTML5 Canvas 2D spatial engine that renders hundreds of interconnected thoughts with 60fps force simulation, smooth panning, and multi-level zoom.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">FEATURE 02</div>
+          <h3 style="margin-top:8px;">Visual Memory Anchors</h3>
+          <p>
+            Attach photographic memory anchors to concepts. Clicking an anchor opens a visual gallery directly within the spatial canvas context.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">FEATURE 03</div>
+          <h3 style="margin-top:8px;">Voice Thoughts</h3>
+          <p>
+            Record audio voice reflections directly against specific nodes. Audio can be replayed and inspected in-situ without leaving the constellation.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">FEATURE 04</div>
+          <h3 style="margin-top:8px;">Temporal Evolution</h3>
+          <p>
+            A dedicated time scrubber and timeline player allowing users to slide through time and observe how ideas were born, clustered, and evolved chronologically.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">FEATURE 05</div>
+          <h3 style="margin-top:8px;">Concept Inspector</h3>
+          <p>
+            An in-depth slide-out panel that parses node details, extracted entities, incoming/outgoing connections, and historical modification logs.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">FEATURE 06</div>
+          <h3 style="margin-top:8px;">Hidden Connections</h3>
+          <p>
+            An AI discovery module that computes latent semantic proximity between distant clusters, highlighting non-obvious cross-domain links.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">FEATURE 07</div>
+          <h3 style="margin-top:8px;">Forgotten Ideas Engine</h3>
+          <p>
+            A resurfacing algorithm that detects dormant nodes that haven't been visited or updated, presenting them as prompts for new contemplation.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">FEATURE 08</div>
+          <h3 style="margin-top:8px;">Ask the Mirror</h3>
+          <p>
+            A conversational reflection agent powered by Claude Sonnet that interrogates the user's graph, answering queries and synthesizing synthesis reports.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">FEATURE 09</div>
+          <h3 style="margin-top:8px;">Share Thought Poster</h3>
+          <p>
+            Generates high-resolution graphical posters of selected constellations and subgraphs, perfect for sharing intellectual roadmaps.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-number">FEATURE 10</div>
+          <h3 style="margin-top:8px;">Interactive Demo Mode</h3>
+          <p>
+            A built-in curated walkthrough loaded with sample intellectual universes to experience every feature without entering private data.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 — Results & Capabilities -->
+    <section class="study-section" id="results">
+      <div class="study-sec-num">SECTION 05</div>
+      <h3>Results & Capabilities</h3>
+      <p>
+        The system achieves fluid real-time interactivity while maintaining semantic fidelity:
+      </p>
+
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Subsystem</th>
+            <th>Specification / Capability</th>
+            <th>Implementation Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rendering Engine</td>
+            <td>60 FPS Canvas 2D Force Layout</td>
+            <td>Custom Verlet-style particle integration with spatial velocity dampening</td>
+          </tr>
+          <tr>
+            <td>LLM Extraction</td>
+            <td>Structured Knowledge Graph Ingestion</td>
+            <td>Claude Sonnet API via Flask Python backend with JSON schema extraction</td>
+          </tr>
+          <tr>
+            <td>Audio Ingestion</td>
+            <td>Direct Browser Voice Recording</td>
+            <td>Web Audio API with client-side blob storage and local node association</td>
+          </tr>
+          <tr>
+            <td>Temporal State</td>
+            <td>Continuous Temporal Scrubbing</td>
+            <td>Discrete chronological snapshots with interpolated node opacity & scale transitions</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 06 — Technologies -->
+    <section class="study-section" id="technologies">
+      <div class="study-sec-num">SECTION 06</div>
+      <h3>Technologies</h3>
+      <p>
+        The Mirror was engineered with a focused stack prioritizing low latency, local accessibility, and rich spatial ergonomics:
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Backend & Intelligence</h4>
+          <div class="meta" style="margin-top:10px;">
+            <span class="tag">Claude Sonnet (Anthropic API)</span>
+            <span class="tag">Python 3.x</span>
+            <span class="tag">Flask</span>
+            <span class="tag">JSON Knowledge Store</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Frontend & Canvas</h4>
+          <div class="meta" style="margin-top:10px;">
+            <span class="tag">HTML5 Canvas 2D</span>
+            <span class="tag">Vanilla JavaScript (ES6+)</span>
+            <span class="tag">CSS3 Custom Properties</span>
+            <span class="tag">Web Audio API</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — GitHub & Repository -->
+    <section class="study-section" id="github">
+      <div class="study-sec-num">SECTION 07</div>
+      <h3>GitHub & Source Code</h3>
+      <p>
+        The complete codebase, documentation, and demonstration assets are publicly accessible on GitHub:
+      </p>
+
+      <div class="card" style="padding: 34px; background: #111116;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div>
+            <h4 style="font-size:20px; color:#ffffff; margin-bottom:6px;">sawan-ade / The-Mirror</h4>
+            <p style="color:var(--muted); font-size:14px; margin:0;">
+              AI-powered interactive visualization that turns thoughts into a living celestial planetarium.
+            </p>
+          </div>
+          <a class="btn main" href="https://github.com/sawan-ade/The-Mirror" target="_blank" rel="noopener">
+            View on GitHub ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h4>SAWAN ADE</h4>
+          <p>
+            Undergraduate in Data Science & Engineering at IISER Bhopal. Researching agentic AI, multi-agent systems, and scientific ML.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="projects.html">Projects</a>
+            <a href="experience.html">Experience</a>
+          </div>
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Academic</span>
+            <a href="education.html">Education</a>
+            <a href="publications.html">Publications & Notes</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="resume.html">Resume / CV</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Connect</span>
+            <a href="https://github.com/sawan-ade" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/SawanAde/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="mailto:adeysawan@gmail.com">Email ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sawan Ade · IISER Bhopal · Built for GitHub Pages</span>
+        <a href="#" class="back-to-top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

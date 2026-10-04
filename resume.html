@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume — Sawan Ade | AI/ML Researcher & Builder</title>
+  <meta name="description" content="Resume of Sawan Ade — Undergraduate in Data Science & Engineering at IISER Bhopal, researching Agentic AI, Multi-Agent Systems, and Scientific ML.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .resume-container {
+      max-width: 860px;
+      margin: 40px auto 80px;
+      padding: 48px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .resume-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+    }
+    .resume-name {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      margin: 0 0 6px;
+    }
+    .resume-role {
+      font-size: 15px;
+      color: var(--accent);
+      font-family: var(--mono);
+      margin-bottom: 8px;
+    }
+    .resume-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .resume-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .resume-section {
+      margin-bottom: 36px;
+    }
+    .resume-section-title {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: var(--mono);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 6px;
+      margin-bottom: 18px;
+    }
+    .resume-entry {
+      margin-bottom: 20px;
+    }
+    .resume-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .resume-entry-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .resume-entry-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .resume-entry-date {
+      font-size: 13px;
+      font-family: var(--mono);
+      color: var(--dim);
+    }
+    .resume-entry-body {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .resume-entry-body ul {
+      margin: 6px 0 0;
+      padding-left: 20px;
+    }
+    .resume-entry-body li {
+      margin-bottom: 4px;
+    }
+    @media print {
+      body {
+        background: #fff !important;
+        color: #111 !important;
+      }
+      nav, footer, .resume-actions, .site-back {
+        display: none !important;
+      }
+      .resume-container {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        background: #fff !important;
+      }
+      .resume-name, .resume-entry-title {
+        color: #000 !important;
+      }
+      .resume-role {
+        color: #333 !important;
+      }
+      .resume-contact, .resume-entry-subtitle, .resume-entry-body {
+        color: #444 !important;
+      }
+      .resume-entry-date {
+        color: #666 !important;
+      }
+      .resume-section-title {
+        color: #000 !important;
+        border-color: #ddd !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .resume-container {
+        padding: 24px;
+      }
+      .resume-header {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .resume-entry-header {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav>
+      <a class="brand" href="index.html">SAWAN ADE</a>
+      <div class="links">
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="publications.html">Publications</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a class="btn nav-btn" href="contact.html">Collaborate</a>
+        <button class="menu-btn" aria-label="Toggle navigation menu" id="menuToggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <span class="brand">SAWAN ADE</span>
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+      </div>
+      <div class="drawer-links">
+        <a href="index.html"><span class="drawer-num">01</span> Home</a>
+        <a href="about.html"><span class="drawer-num">02</span> About</a>
+        <a href="research.html"><span class="drawer-num">03</span> Research</a>
+        <a href="projects.html"><span class="drawer-num">04</span> Projects</a>
+        <a href="experience.html"><span class="drawer-num">05</span> Experience</a>
+        <a href="education.html"><span class="drawer-num">06</span> Education</a>
+        <a href="publications.html"><span class="drawer-num">07</span> Publications & Notes</a>
+        <a href="achievements.html"><span class="drawer-num">08</span> Achievements</a>
+        <a href="contact.html"><span class="drawer-num">09</span> Contact</a>
+      </div>
+      <div class="drawer-footer">
+        <a href="resume.html" class="btn main full-width">View Resume</a>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <div class="site-back" style="margin-top: 30px;">
+      <a href="index.html" class="meta-link">← Back to Overview</a>
+    </div>
+
+    <div class="resume-container">
+      <div class="resume-header">
+        <div>
+          <h1 class="resume-name">Sawan Ade</h1>
+          <div class="resume-role">Data Science & Engineering · IISER Bhopal</div>
+          <div class="resume-contact">
+            <span>adeysawan@gmail.com</span>
+            <span>·</span>
+            <a href="https://github.com/sawan-ade" target="_blank" rel="noopener">github.com/sawan-ade ↗</a>
+            <span>·</span>
+            <a href="https://www.linkedin.com/in/SawanAde/" target="_blank" rel="noopener">linkedin.com/in/SawanAde ↗</a>
+            <span>·</span>
+            <span>Bhopal, India</span>
+          </div>
+        </div>
+        <div class="resume-actions">
+          <button class="btn main" onclick="window.print()">Print / Save PDF</button>
+          <a class="btn" href="contact.html">Get in touch</a>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <section class="resume-section" style="border-top:none; padding-top:0;">
+        <div class="resume-section-title">Education</div>
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <div class="resume-entry-title">Indian Institute of Science Education and Research (IISER) Bhopal</div>
+              <div class="resume-entry-subtitle">BS-MS in Data Science & Engineering</div>
+            </div>
+            <div class="resume-entry-date">Undergraduate</div>
+          </div>
+          <div class="resume-entry-body">
+            Relevant Coursework: Data Structures & Algorithms, Deep Learning, Machine Learning, Linear Algebra, Multivariable Calculus, Probability & Statistical Inference, Scientific Computing, Differential Equations.
+          </div>
+        </div>
+      </section>
+
+      <!-- Research & Experience -->
+      <section class="resume-section" style="border-top:none; padding-top:0;">
+        <div class="resume-section-title">Experience & Research Internships</div>
+        
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <div class="resume-entry-title">Agentic AI Research & Engineering</div>
+              <div class="resume-entry-subtitle">Independent & Collaborative Research</div>
+            </div>
+            <div class="resume-entry-date">2026</div>
+          </div>
+          <div class="resume-entry-body">
+            <ul>
+              <li>Developing agentic systems with LangGraph, OpenAI Agents SDK, and multi-agent coordination frameworks.</li>
+              <li>Focusing on LLM evaluation reliability, agentic verification of reasoning traces, and game-theoretic judge designs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <div class="resume-entry-title">Visdom Lab — Research Intern</div>
+              <div class="resume-entry-subtitle">Deep Learning & Computer Vision</div>
+            </div>
+            <div class="resume-entry-date">Dec 2025 — Mar 2026</div>
+          </div>
+          <div class="resume-entry-body">
+            <ul>
+              <li>Conducted empirical research in modern deep neural network architectures and visual representations.</li>
+              <li>Experimented with representation learning and vision models across complex datasets.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <div class="resume-entry-title">Indian Institute of Technology (IIT) Patna — Research Intern</div>
+              <div class="resume-entry-subtitle">Summer Internship · Machine Learning & Data Science</div>
+            </div>
+            <div class="resume-entry-date">Summer Internship</div>
+          </div>
+          <div class="resume-entry-body">
+            <ul>
+              <li>Engineered end-to-end forecasting pipeline analyzing temporal and geospatial groundwater level dynamics.</li>
+              <li>Benchmarked and tuned XGBoost, LightGBM, CatBoost, Random Forest, LSTM, and stacked ensemble models.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <div class="resume-entry-title">IISER Bhopal — Student Leadership</div>
+              <div class="resume-entry-subtitle">Vice-Secretary, Fine Arts & Literary Council</div>
+            </div>
+            <div class="resume-entry-date">2025 — Present</div>
+          </div>
+          <div class="resume-entry-body">
+            <ul>
+              <li>Elected representative coordinating institute-wide intellectual, literary, and cultural initiatives.</li>
+              <li>Spearheaded student delegation workflows and cross-departmental coordination.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Selected Projects -->
+      <section class="resume-section" style="border-top:none; padding-top:0;">
+        <div class="resume-section-title">Selected Projects</div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <div class="resume-entry-title">The Mirror — Living Knowledge Planetarium</div>
+              <div class="resume-entry-subtitle">Claude Sonnet, Python Flask, JavaScript Canvas 2D, AI</div>
+            </div>
+            <div class="resume-entry-date">Featured Project</div>
+          </div>
+          <div class="resume-entry-body">
+            <ul>
+              <li>AI-powered interactive visualization system transforming unstructured notes, journals, and thoughts into a living planetarium of concepts.</li>
+              <li>Integrated galaxy thought maps, photographic visual anchors, voice reflections, temporal evolution scrubbing, and latent connection discovery.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <div class="resume-entry-title">ML4Sci — End-to-End Sparse Deep Learning</div>
+              <div class="resume-entry-subtitle">PyTorch, Sparse CNNs, Autoencoders, Pruning</div>
+            </div>
+            <div class="resume-entry-date">GSoC 2026 Task</div>
+          </div>
+          <div class="resume-entry-body">
+            <ul>
+              <li>Particle collision event classification utilizing sparse convolutional networks tailored for high-dimensional detector sparsity.</li>
+              <li>Implemented autoencoder pretraining, transfer learning, and model pruning, attaining 90.5% classification accuracy.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <div class="resume-entry-title">SIR Model Symbolic ODE Discovery</div>
+              <div class="resume-entry-subtitle">PyTorch Autograd, Neural Networks, LASSO Sparse Regression</div>
+            </div>
+            <div class="resume-entry-date">Scientific ML</div>
+          </div>
+          <div class="resume-entry-body">
+            <ul>
+              <li>Fitted neural networks to stochastic epidemic trajectories, extracted continuous derivatives via PyTorch autograd, and applied LASSO regression to recover the underlying differential equation governing dynamics.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-entry">
+          <div class="resume-entry-header">
+            <div>
+              <div class="resume-entry-title">Transformer From Scratch</div>
+              <div class="resume-entry-subtitle">PyTorch Implementation from First Principles</div>
+            </div>
+            <div class="resume-entry-date">Deep Learning</div>
+          </div>
+          <div class="resume-entry-body">
+            <ul>
+              <li>Engineered full encoder-decoder transformer architecture from scratch without nn.Transformer: multi-head attention, positional encoding, layer normalization, and causal masks.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Skills -->
+      <section class="resume-section" style="border-top:none; padding-top:0;">
+        <div class="resume-section-title">Technical Skills</div>
+        <div class="resume-entry-body">
+          <p><strong>Languages:</strong> Python, C, Rust, JavaScript, SQL, Bash</p>
+          <p><strong>AI & ML Frameworks:</strong> PyTorch, TensorFlow, Scikit-learn, Hugging Face, LangGraph, OpenAI Agents SDK</p>
+          <p><strong>Methodologies:</strong> Multi-Agent Systems, LLM Reasoning, LLM Evaluation, RAG, Scientific Machine Learning (SINDy/Neural ODEs), Sparse CNNs, Ensemble Learning</p>
+          <p><strong>Tools & Environments:</strong> Git/GitHub, Linux, Docker, LaTeX, Weights & Biases, Flask</p>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <span>© 2026 Sawan Ade · IISER Bhopal</span>
+      <div class="footer-links">
+        <a href="https://github.com/sawan-ade" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/SawanAde/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:adeysawan@gmail.com">adeysawan@gmail.com</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

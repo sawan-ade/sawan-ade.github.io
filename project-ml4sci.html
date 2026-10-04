@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ML4Sci Sparse Deep Learning — Sawan Ade | Research Case Study</title>
+  <meta name="description" content="Particle collision event classification using sparse convolutional neural networks, autoencoder pretraining, and model pruning for ML4Sci GSoC 2026.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="shell">
+    <!-- Navigation -->
+    <nav>
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        SAWAN ADE
+      </a>
+      <div class="links">
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="publications.html">Publications</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a class="btn nav-btn" href="contact.html">Collaborate</a>
+        <button class="menu-btn" aria-label="Toggle navigation menu" id="menuToggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <span class="brand"><span class="brand-dot"></span> SAWAN ADE</span>
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+      </div>
+      <div class="drawer-links">
+        <a href="index.html"><span class="drawer-num">01</span> Home</a>
+        <a href="about.html"><span class="drawer-num">02</span> About</a>
+        <a href="research.html"><span class="drawer-num">03</span> Research</a>
+        <a href="projects.html"><span class="drawer-num">04</span> Projects</a>
+        <a href="experience.html"><span class="drawer-num">05</span> Experience</a>
+        <a href="education.html"><span class="drawer-num">06</span> Education</a>
+        <a href="publications.html"><span class="drawer-num">07</span> Publications & Notes</a>
+        <a href="achievements.html"><span class="drawer-num">08</span> Achievements</a>
+        <a href="contact.html"><span class="drawer-num">09</span> Contact</a>
+      </div>
+      <div class="drawer-footer">
+        <a href="resume.html" class="btn main full-width">View Resume / CV</a>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <!-- Back to Projects -->
+    <div style="margin-top: 36px;">
+      <a href="projects.html" class="meta-link" style="color:var(--muted); font-size:13.5px; font-family:var(--mono);">← Back to All Projects</a>
+    </div>
+
+    <!-- Deep Dive Hero -->
+    <section class="deep-dive-hero">
+      <div class="label">Scientific ML Research Deep Dive</div>
+      <h1 class="deep-dive-title">ML4Sci: Sparse Deep Learning</h1>
+      <p class="deep-dive-lead">
+        Subatomic particle collision event classification using sparse convolutional neural networks, autoencoder pretraining, transfer learning, and model pruning. Developed for the Machine Learning for Science (ML4Sci) GSoC 2026 initiative.
+      </p>
+
+      <div class="buttons">
+        <a class="btn main" href="https://github.com/sawan-ade/End-to-end-E2E-Deep-Learning-projects-Specific-Tasks-2d" target="_blank" rel="noopener">Explore Code on GitHub <span class="btn-arrow">↗</span></a>
+        <span class="tag accent" style="font-size:13px; padding:8px 14px;">90.5% Event Classification Accuracy</span>
+      </div>
+    </section>
+
+    <!-- Sticky Case Study Sub-Nav -->
+    <div class="study-nav">
+      <div class="study-nav-list">
+        <a href="#overview">01 — Overview</a>
+        <a href="#problem">02 — Problem</a>
+        <a href="#approach">03 — Approach</a>
+        <a href="#architecture">04 — Pipeline</a>
+        <a href="#results">05 — Results</a>
+        <a href="#technologies">06 — Technologies</a>
+        <a href="#github">07 — GitHub</a>
+      </div>
+    </div>
+
+    <!-- 01 — Overview -->
+    <section class="study-section" id="overview">
+      <div class="study-sec-num">SECTION 01</div>
+      <h3>Overview</h3>
+      <p>
+        In modern experimental High Energy Physics (HEP), particle colliders (such as the Large Hadron Collider at CERN) generate petabytes of sensory sensor readings per second. Detector arrays are segmented into millions of calorimeter cells and tracking pixels. However, the vast majority of these detector cells remain quiescent during any single event, resulting in data arrays where over 95–99% of entries are exact zeros.
+      </p>
+      <p>
+        This research investigates end-to-end deep learning methods specifically formulated to exploit spatial sparsity. By leveraging submanifold sparse convolutions, autoencoder representation learning, and post-training parameter pruning, this pipeline attains high-fidelity event discrimination with substantial computational efficiency gains over dense baselines.
+      </p>
+    </section>
+
+    <!-- 02 — Problem -->
+    <section class="study-section" id="problem">
+      <div class="study-sec-num">SECTION 02</div>
+      <h3>The Problem</h3>
+      <p>
+        Applying conventional dense Convolutional Neural Networks (CNNs) to high-energy physics sensor arrays encounters two fundamental inefficiencies:
+      </p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-number">CHALLENGE 01</div>
+          <h3 style="margin-top:8px;">Computational Waste on Null Manifolds</h3>
+          <p>
+            Standard 2D/3D convolutions evaluate matrix multiplications uniformly across every voxel, expending enormous GPU memory and FLOPs multiplying weights by zero in empty detector regions.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-number">CHALLENGE 02</div>
+          <h3 style="margin-top:8px;">Submanifold Dilation ("Information Smearing")</h3>
+          <p>
+            Standard convolutions cause sparse signals to "dilate" across subsequent layers, converting an initially sparse point cloud into a pseudo-dense volume and eroding fine topological event signatures.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — Approach -->
+    <section class="study-section" id="approach">
+      <div class="study-sec-num">SECTION 03</div>
+      <h3>The Approach</h3>
+      <p>
+        The system employs a three-stage methodological architecture designed to preserve and exploit sparsity throughout the representation pipeline:
+      </p>
+      <p>
+        1. <strong>Sparse Coordinate Representation:</strong> Input events are formatted as coordinate lists (COO tensors) storing only non-zero coordinates and associated energy deposition values, bypassing empty detector volume storage.
+      </p>
+      <p>
+        2. <strong>Submanifold Sparse Convolutions:</strong> Computations are strictly constrained to non-zero sites, preventing artificial spatial dilation and preserving the precise geometric localization of particle tracks and energy clusters.
+      </p>
+      <p>
+        3. <strong>Unsupervised Autoencoder Pretraining:</strong> A sparse convolutional autoencoder is trained to compress and reconstruct event geometries, establishing a robust feature manifold before fine-tuning for downstream binary event classification.
+      </p>
+      <p>
+        4. <strong>Systematic Model Pruning:</strong> Magnitude-based structured pruning is applied to identify and prune redundant kernel weights without degrading classification boundaries.
+      </p>
+    </section>
+
+    <!-- 04 — Pipeline & Architecture -->
+    <section class="study-section" id="architecture">
+      <div class="study-sec-num">SECTION 04</div>
+      <h3>Pipeline & Architecture</h3>
+      
+      <div class="diagram-box">
+        <div class="kicker" style="margin-bottom:12px;">END-TO-END PIPELINE SCHEMATIC</div>
+        <div style="font-family:var(--mono); font-size:13px; line-height:1.7; color:#c5c5d2;">
+          [Raw Particle Collision Event: 2D Calorimeter Grid]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+          [Coordinate Extraction: Spatial Indices + Energy Values]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+          [Sparse Autoencoder Pretraining (Unsupervised Representation)]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+          [Transfer Learning & Supervised Event Classifier Head]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+          [Post-Training Parameter Pruning & Metric Validation]
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 — Results -->
+    <section class="study-section" id="results">
+      <div class="study-sec-num">SECTION 05</div>
+      <h3>Empirical Results</h3>
+      <p>
+        The pipeline was evaluated on specific benchmark tasks for the ML4Sci GSoC 2026 qualification suite:
+      </p>
+
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Metric / Milestone</th>
+            <th>Observed Result</th>
+            <th>Methodological Significance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Classification Accuracy</td>
+            <td><strong>90.5%</strong></td>
+            <td>High discriminative capability on binary particle collision events</td>
+          </tr>
+          <tr>
+            <td>Pretraining Strategy</td>
+            <td>Sparse Autoencoder (AE)</td>
+            <td>Unsupervised manifold pretraining substantially improved convergence speed</td>
+          </tr>
+          <tr>
+            <td>Compression & Pruning</td>
+            <td>Structured Weight Pruning</td>
+            <td>Model footprint compressed while maintaining decision boundary fidelity</td>
+          </tr>
+          <tr>
+            <td>Target Initiative</td>
+            <td>ML4Sci GSoC 2026</td>
+            <td>Engineered to the exact test task specifications for scientific deep learning</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 06 — Technologies -->
+    <section class="study-section" id="technologies">
+      <div class="study-sec-num">SECTION 06</div>
+      <h3>Technologies</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Frameworks & Core</h4>
+          <div class="meta" style="margin-top:10px;">
+            <span class="tag">PyTorch</span>
+            <span class="tag">Sparse Convolutions</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">SciPy</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Techniques & Paradigms</h4>
+          <div class="meta" style="margin-top:10px;">
+            <span class="tag">Autoencoder Pretraining</span>
+            <span class="tag">Transfer Learning</span>
+            <span class="tag">Weight Pruning</span>
+            <span class="tag">High Energy Physics Data</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — GitHub -->
+    <section class="study-section" id="github">
+      <div class="study-sec-num">SECTION 07</div>
+      <h3>GitHub & Codebase</h3>
+      <p>
+        The repository includes complete training routines, pretraining autoencoders, pruning scripts, and visualization notebooks:
+      </p>
+
+      <div class="card" style="padding: 34px; background: #111116;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div>
+            <h4 style="font-size:20px; color:#ffffff; margin-bottom:6px;">sawan-ade / End-to-end-E2E-Deep-Learning-projects-Specific-Tasks-2d</h4>
+            <p style="color:var(--muted); font-size:14px; margin:0;">
+              End-to-end sparse deep learning for particle collision event classification.
+            </p>
+          </div>
+          <a class="btn main" href="https://github.com/sawan-ade/End-to-end-E2E-Deep-Learning-projects-Specific-Tasks-2d" target="_blank" rel="noopener">
+            View on GitHub ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h4>SAWAN ADE</h4>
+          <p>
+            Undergraduate in Data Science & Engineering at IISER Bhopal. Researching agentic AI, multi-agent systems, and scientific ML.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="projects.html">Projects</a>
+            <a href="experience.html">Experience</a>
+          </div>
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Academic</span>
+            <a href="education.html">Education</a>
+            <a href="publications.html">Publications & Notes</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="resume.html">Resume / CV</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Connect</span>
+            <a href="https://github.com/sawan-ade" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/SawanAde/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="mailto:adeysawan@gmail.com">Email ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sawan Ade · IISER Bhopal · Built for GitHub Pages</span>
+        <a href="#" class="back-to-top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

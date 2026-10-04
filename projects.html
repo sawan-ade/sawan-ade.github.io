@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Sawan Ade | AI/ML Researcher & Builder</title>
+  <meta name="description" content="Selected projects, research implementations, and software systems built by Sawan Ade across Agentic AI, Scientific ML, and Deep Learning.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="shell">
+    <!-- Navigation -->
+    <nav>
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        SAWAN ADE
+      </a>
+      <div class="links">
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="publications.html">Publications</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a class="btn nav-btn" href="contact.html">Collaborate</a>
+        <button class="menu-btn" aria-label="Toggle navigation menu" id="menuToggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <span class="brand"><span class="brand-dot"></span> SAWAN ADE</span>
+        <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+      </div>
+      <div class="drawer-links">
+        <a href="index.html"><span class="drawer-num">01</span> Home</a>
+        <a href="about.html"><span class="drawer-num">02</span> About</a>
+        <a href="research.html"><span class="drawer-num">03</span> Research</a>
+        <a href="projects.html"><span class="drawer-num">04</span> Projects</a>
+        <a href="experience.html"><span class="drawer-num">05</span> Experience</a>
+        <a href="education.html"><span class="drawer-num">06</span> Education</a>
+        <a href="publications.html"><span class="drawer-num">07</span> Publications & Notes</a>
+        <a href="achievements.html"><span class="drawer-num">08</span> Achievements</a>
+        <a href="contact.html"><span class="drawer-num">09</span> Contact</a>
+      </div>
+      <div class="drawer-footer">
+        <a href="resume.html" class="btn main full-width">View Resume / CV</a>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <!-- Page Header -->
+    <section class="page-head">
+      <div class="label">Engineering & Codebases</div>
+      <div class="section-head">
+        <div>
+          <h2>Things I've <span class="italic-word">built</span>.</h2>
+        </div>
+        <p>
+          A selection of research implementations, experimental pipelines, and systems developed from first principles.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Projects (6)</button>
+        <button class="filter-tab" data-filter="featured">Featured</button>
+        <button class="filter-tab" data-filter="ai">Agentic & AI</button>
+        <button class="filter-tab" data-filter="sciml">Scientific ML</button>
+        <button class="filter-tab" data-filter="systems">Deep Learning & Systems</button>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section style="padding-top: 20px; border-top:none;">
+      <div class="grid">
+
+        <!-- 01: The Mirror (Featured Full Width) -->
+        <div class="card feature project-item" data-category="featured ai">
+          <div>
+            <div class="feature-tag-row">
+              <div class="meta">
+                <span class="tag accent">01 · Featured Project</span>
+                <span class="tag">Knowledge Planetarium</span>
+                <span class="tag">Canvas 2D</span>
+              </div>
+              <a href="project-mirror.html" class="card-arrow" title="Read case study" style="font-size:26px;">↗</a>
+            </div>
+
+            <div class="feature-content">
+              <h3>The Mirror — Living Knowledge Planetarium</h3>
+              <p>
+                An AI-powered interactive visualization system that transforms unstructured notes, journals, thoughts, and ideas into a living planetarium of an intellectual world. Built around interactive force-directed canvas representations, personal memory anchors, and LLM reflection loops.
+              </p>
+            </div>
+
+            <div class="feature-meta-grid">
+              <div>
+                <div class="feature-stat-label">Problem</div>
+                <div class="feature-stat-val">Linear, flat notes isolate ideas and cause cognitive decay</div>
+              </div>
+              <div>
+                <div class="feature-stat-label">Approach</div>
+                <div class="feature-stat-val">Constellation ontology + temporal evolution + AI dialog</div>
+              </div>
+              <div>
+                <div class="feature-stat-label">Core Capabilities</div>
+                <div class="feature-stat-val">Voice thoughts, memory anchors, forgotten ideas resurfacing</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">Claude Sonnet</span>
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Canvas 2D</span>
+              <span class="tag">AI</span>
+            </div>
+            <div class="buttons" style="margin-top:0;">
+              <a class="btn main" href="project-mirror.html">Explore Case Study (01–07) <span class="btn-arrow">→</span></a>
+              <a class="btn" href="https://github.com/sawan-ade/The-Mirror" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02: ML4Sci Sparse DL -->
+        <div class="card project-item" data-category="featured sciml systems">
+          <div class="card-top">
+            <span class="card-number">02 / RESEARCH</span>
+            <span class="tag accent">90.5% Accuracy</span>
+          </div>
+          <h3><a href="project-ml4sci.html">ML4Sci — End-to-End Sparse Deep Learning</a></h3>
+          <p>
+            <strong>Problem:</strong> Subatomic particle collision detectors generate massive, extremely sparse data grids where standard dense convolutions suffer severe computational inefficiency and geometric distortion.<br><br>
+            <strong>Approach:</strong> Built an end-to-end classification pipeline leveraging sparse convolutional neural networks, autoencoder pretraining for unsupervised manifold representation, transfer learning, and structured weight pruning.
+          </p>
+          <div class="feature-meta-grid" style="margin: 14px 0; padding: 14px;">
+            <div>
+              <div class="feature-stat-label">Benchmark</div>
+              <div class="feature-stat-val">90.5% Event Classification Accuracy</div>
+            </div>
+            <div>
+              <div class="feature-stat-label">Application</div>
+              <div class="feature-stat-val">ML4Sci GSoC 2026 Test Task</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">PyTorch</span>
+              <span class="tag">Sparse CNNs</span>
+              <span class="tag">Autoencoders</span>
+              <span class="tag">Model Pruning</span>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <a class="btn" style="padding:6px 12px; font-size:12px;" href="project-ml4sci.html">Case Study →</a>
+              <a class="btn" style="padding:6px 12px; font-size:12px;" href="https://github.com/sawan-ade/End-to-end-E2E-Deep-Learning-projects-Specific-Tasks-2d" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03: SIR Model Symbolic Discovery -->
+        <div class="card project-item" data-category="sciml systems">
+          <div class="card-top">
+            <span class="card-number">03 / SCIENTIFIC ML</span>
+            <span class="tag highlight">Symbolic SINDy</span>
+          </div>
+          <h3><a href="https://github.com/sawan-ade/sir-model-gsoc-2026" target="_blank" rel="noopener">SIR Model Symbolic ODE Discovery</a></h3>
+          <p>
+            <strong>Problem:</strong> Complex stochastic biological and epidemiological systems are governed by non-linear differential equations that are rarely known a priori from raw observational trajectory data.<br><br>
+            <strong>Approach:</strong> Fitted neural networks to simulate stochastic epidemic state paths, extracted exact continuous temporal derivatives using PyTorch autograd, and applied LASSO sparse regression over a candidate polynomial library to symbolically rediscover the exact SIR ODE equations.
+          </p>
+          <div class="feature-meta-grid" style="margin: 14px 0; padding: 14px;">
+            <div>
+              <div class="feature-stat-label">Methods</div>
+              <div class="feature-stat-val">Neural ODEs + Autograd + LASSO</div>
+            </div>
+            <div>
+              <div class="feature-stat-label">Context</div>
+              <div class="feature-stat-val">GSoC 2026 Scientific Discovery</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">PyTorch</span>
+              <span class="tag">Autograd</span>
+              <span class="tag">LASSO</span>
+              <span class="tag">Epidemic Dynamics</span>
+            </div>
+            <a class="btn" style="padding:6px 12px; font-size:12px;" href="https://github.com/sawan-ade/sir-model-gsoc-2026" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- 04: Groundwater Prediction -->
+        <div class="card project-item" data-category="systems">
+          <div class="card-top">
+            <span class="card-number">04 / APPLIED ML</span>
+            <span class="tag">IIT Patna Internship</span>
+          </div>
+          <h3><a href="https://github.com/sawan-ade/Groundwater-level-analysis-and-prediction-using-ML-IITP-Summer-Internship-Project" target="_blank" rel="noopener">Groundwater Level Analysis & Prediction</a></h3>
+          <p>
+            <strong>Problem:</strong> Subsurface hydrological levels fluctuate under intricate non-linear dependencies across rainfall, geospatial terrain, seasonal drawdown, and temperature, necessitating reliable forecasting for water security.<br><br>
+            <strong>Approach:</strong> Engineered an end-to-end data pipeline with comprehensive spatiotemporal feature engineering. Benchmarked and ensembled gradient-boosted decision trees (XGBoost, LightGBM, CatBoost), Random Forests, and Long Short-Term Memory (LSTM) recurrent networks.
+          </p>
+          <div class="feature-meta-grid" style="margin: 14px 0; padding: 14px;">
+            <div>
+              <div class="feature-stat-label">Domain</div>
+              <div class="feature-stat-val">Hydrological Spatiotemporal Modeling</div>
+            </div>
+            <div>
+              <div class="feature-stat-label">Models</div>
+              <div class="feature-stat-val">XGBoost, LightGBM, CatBoost, LSTM</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">XGBoost</span>
+              <span class="tag">LightGBM</span>
+              <span class="tag">CatBoost</span>
+              <span class="tag">LSTM</span>
+              <span class="tag">Ensembles</span>
+            </div>
+            <a class="btn" style="padding:6px 12px; font-size:12px;" href="https://github.com/sawan-ade/Groundwater-level-analysis-and-prediction-using-ML-IITP-Summer-Internship-Project" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- 05: Transformer From Scratch -->
+        <div class="card project-item" data-category="systems ai">
+          <div class="card-top">
+            <span class="card-number">05 / FOUNDATIONS</span>
+            <span class="tag">First Principles</span>
+          </div>
+          <h3><a href="https://github.com/sawan-ade/Transformer-encoder-decoder-in-PyTorch-from-scratch-" target="_blank" rel="noopener">Transformer From Scratch in PyTorch</a></h3>
+          <p>
+            <strong>Problem:</strong> High-level abstractions like <code>torch.nn.Transformer</code> hide essential tensor contractions, attention head dynamics, masking operations, and gradient flows.<br><br>
+            <strong>Approach:</strong> Built the complete original Attention Is All You Need sequence-to-sequence architecture from pure PyTorch tensor operations: scaled dot-product multi-head self and cross attention, sinusoidal positional encodings, layer normalization, residual blocks, causal autoregressive masking, and padding masks.
+          </p>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">PyTorch</span>
+              <span class="tag">Multi-Head Attention</span>
+              <span class="tag">Positional Encoding</span>
+              <span class="tag">NLP</span>
+            </div>
+            <a class="btn" style="padding:6px 12px; font-size:12px;" href="https://github.com/sawan-ade/Transformer-encoder-decoder-in-PyTorch-from-scratch-" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <!-- 06: Instagram Focus -->
+        <div class="card project-item" data-category="ai systems">
+          <div class="card-top">
+            <span class="card-number">06 / PRODUCT & COGNITION</span>
+            <span class="tag">Intentional Systems</span>
+          </div>
+          <h3><a href="https://github.com/sawan-ade/instagram-focus" target="_blank" rel="noopener">Instagram Focus</a></h3>
+          <p>
+            <strong>Problem:</strong> Social media interfaces deliberately couple productive communication tools (direct messages, profile lookups, close network updates) with hyper-addictive recommendation engines designed to maximize passive screen-time.<br><br>
+            <strong>Approach:</strong> Engineered a cognitive focus system that selectively isolates essential social utilities (DMs, notifications, profiles, follow requests) while surgically filtering and masking addictive recommendation surfaces (Reels, algorithmic Explore feeds, and infinite scroll loops).
+          </p>
+          <div class="card-footer">
+            <div class="meta">
+              <span class="tag">Product Design</span>
+              <span class="tag">Cognitive AI</span>
+              <span class="tag">Interface Ethics</span>
+            </div>
+            <a class="btn" style="padding:6px 12px; font-size:12px;" href="https://github.com/sawan-ade/instagram-focus" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h4>SAWAN ADE</h4>
+          <p>
+            Undergraduate in Data Science & Engineering at IISER Bhopal. Researching agentic AI, multi-agent systems, and scientific ML.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Navigation</span>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="projects.html">Projects</a>
+            <a href="experience.html">Experience</a>
+          </div>
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Academic</span>
+            <a href="education.html">Education</a>
+            <a href="publications.html">Publications & Notes</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="resume.html">Resume / CV</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-nav-col">
+            <span class="footer-col-title">Connect</span>
+            <a href="https://github.com/sawan-ade" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/SawanAde/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="mailto:adeysawan@gmail.com">Email ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sawan Ade · IISER Bhopal · Built for GitHub Pages</span>
+        <a href="#" class="back-to-top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Archives
+*.zip
+
+# System & OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python / Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.env
