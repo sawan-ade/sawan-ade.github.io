@@ -1,6 +1,9 @@
 # Archives
 *.zip
 
+# Subprojects
+portfolio-v2/
+
 # System & OS
 .DS_Store
 Thumbs.db
