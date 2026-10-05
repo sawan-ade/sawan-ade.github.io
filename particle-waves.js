@@ -1,7 +1,7 @@
 /**
  * Particle Waves Engine — Sawan Ade Portfolio (V1)
- * Interactive 3D undulating particle wave lattice on clean white backgrounds.
- * High-performance Canvas 2D perspective projection with 60 FPS animation.
+ * Full-viewport undulating 3D particle wave matrix on clean white background.
+ * Spans 100% of the screen height and width across all pages and scroll positions.
  */
 (function() {
   function initParticleWaves() {
@@ -13,21 +13,13 @@
     let height = 0;
     let dpr = 1;
 
-    // Grid configuration
-    const cols = 50;       // Number of columns across X
-    const rows = 36;       // Number of rows in depth Z
-    const spacingX = 42;
-    const spacingZ = 38;
-    const camY = 220;
-    const camZ = -340;
-    const fov = 370;
-    const baseTilt = 0.38;
-
-    let time = 0;
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetMouseX = 0;
-    let targetMouseY = 0;
+    let baseTime = 0;
+    let mouseX = -1000;
+    let mouseY = -1000;
+    let targetMouseX = -1000;
+    let targetMouseY = -1000;
+    let scrollY = 0;
+    let targetScrollY = 0;
     let animId = null;
     let isVisible = true;
 
@@ -47,8 +39,17 @@
     resize();
 
     window.addEventListener('mousemove', function(e) {
-      targetMouseX = (e.clientX - width / 2) / (width / 2);
-      targetMouseY = (e.clientY - height / 2) / (height / 2);
+      targetMouseX = e.clientX;
+      targetMouseY = e.clientY;
+    }, { passive: true });
+
+    window.addEventListener('mouseleave', function() {
+      targetMouseX = -1000;
+      targetMouseY = -1000;
+    }, { passive: true });
+
+    window.addEventListener('scroll', function() {
+      targetScrollY = window.pageYOffset || document.documentElement.scrollTop;
     }, { passive: true });
 
     document.addEventListener('visibilitychange', function() {
@@ -69,112 +70,116 @@
 
       const dt = Math.min((now - lastTime) / 1000, 0.1);
       lastTime = now;
-      time += dt * 1.25;
+      baseTime += dt * 1.15;
 
       // Smooth mouse interpolation
-      mouseX += (targetMouseX - mouseX) * 0.04;
-      mouseY += (targetMouseY - mouseY) * 0.04;
+      if (targetMouseX > -500) {
+        mouseX += (targetMouseX - mouseX) * 0.08;
+        mouseY += (targetMouseY - mouseY) * 0.08;
+      } else {
+        mouseX += (-1000 - mouseX) * 0.08;
+        mouseY += (-1000 - mouseY) * 0.08;
+      }
+
+      // Smooth scroll parallax
+      scrollY += (targetScrollY - scrollY) * 0.08;
 
       ctx.clearRect(0, 0, width, height);
 
-      const dynamicTilt = baseTilt + mouseY * 0.08;
-      const cosT = Math.cos(dynamicTilt);
-      const sinT = Math.sin(dynamicTilt);
-      const halfCols = cols / 2;
+      // Grid spacing calculated to fill 100% of the viewport from top to bottom
+      const stepY = Math.max(28, Math.min(42, height / 28));
+      const stepX = Math.max(30, Math.min(46, width / 42));
+      const numRows = Math.ceil(height / stepY) + 3;
+      const numCols = Math.ceil(width / stepX) + 3;
+
+      const time = baseTime + scrollY * 0.0018;
 
       const grid = [];
 
-      // 3D coordinate calculation
-      for (let r = 0; r < rows; r++) {
+      // Compute wave coordinates across 100% of the screen
+      for (let r = 0; r < numRows; r++) {
         const rowPoints = [];
-        const depthRatio = r / rows; // 0 (near) to 1 (far)
+        const y0 = (r - 1) * stepY;
 
-        for (let c = 0; c < cols; c++) {
-          const colOffset = c - halfCols;
-          const wx = colOffset * spacingX + mouseX * 50 * depthRatio;
-          const wz = r * spacingZ;
+        for (let c = 0; c < numCols; c++) {
+          const x0 = (c - 1) * stepX;
 
-          // Multi-harmonic undulating wave equation
-          const w1 = Math.sin(colOffset * 0.16 + time * 1.4) * Math.cos(r * 0.14 + time * 1.0) * 34;
-          const w2 = Math.sin((colOffset + r) * 0.09 + time * 0.85) * 20;
-          const w3 = Math.cos(colOffset * 0.07 - time * 0.6) * 14;
-          const wy = w1 + w2 + w3;
+          // Multi-octave sinusoidal wave equation
+          const w1 = Math.sin(x0 * 0.0045 + time * 1.3) * Math.cos(y0 * 0.0055 + time * 0.95) * 26;
+          const w2 = Math.sin((x0 + y0) * 0.0032 + time * 0.8) * 16;
+          const w3 = Math.cos(x0 * 0.0026 - time * 0.55) * 11;
+          const waveHeight = w1 + w2 + w3;
 
-          // Camera translation
-          const dx = wx;
-          const dy = wy - camY;
-          const dz = wz - camZ;
-
-          // Pitch rotation
-          const dy_p = dy * cosT - dz * sinT;
-          const dz_p = dy * sinT + dz * cosT;
-
-          if (dz_p > 15) {
-            const scale = fov / dz_p;
-            const sx = width / 2 + dx * scale;
-            const sy = height / 2 + dy_p * scale + (height * 0.18);
-
-            // Distance attenuation for crisp white background
-            const alpha = Math.max(0.04, (1 - depthRatio * 0.8) * 0.38);
-            const isCrest = wy > 15;
-            const radius = Math.max(0.7, (2.8 - depthRatio * 1.8) * Math.min(scale, 1.35));
-
-            rowPoints.push({
-              x: sx,
-              y: sy,
-              r: radius,
-              alpha: alpha,
-              isCrest: isCrest,
-              wy: wy
-            });
-          } else {
-            rowPoints.push(null);
+          // Mouse dynamic ripple
+          let mouseRipple = 0;
+          if (mouseX > -500) {
+            const dx = x0 - mouseX;
+            const dy = y0 - mouseY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 340) {
+              const factor = (1 - dist / 340);
+              mouseRipple = Math.sin(dist * 0.024 - time * 3.6) * 22 * factor * factor;
+            }
           }
+
+          const px = x0 + Math.sin(y0 * 0.0045 + time * 0.9) * 8;
+          const py = y0 + waveHeight + mouseRipple;
+
+          const isCrest = waveHeight > 10;
+          const normalizedElev = Math.max(0, Math.min(1, (waveHeight + 40) / 80));
+          const radius = Math.max(0.9, 1.2 + normalizedElev * 1.4);
+          const alpha = Math.max(0.08, Math.min(0.42, 0.18 + normalizedElev * 0.24));
+
+          rowPoints.push({
+            x: px,
+            y: py,
+            r: radius,
+            alpha: alpha,
+            isCrest: isCrest,
+            elev: waveHeight
+          });
         }
         grid.push(rowPoints);
       }
 
-      // Draw delicate connecting wave filaments along rows
-      for (let r = 0; r < rows; r++) {
+      // 1. Draw smooth fluid wave spline ribbons along each row across the full screen
+      for (let r = 0; r < numRows; r++) {
         const row = grid[r];
-        const depthRatio = r / rows;
-        const lineAlpha = Math.max(0.015, (1 - depthRatio * 0.82) * 0.14);
+        if (!row.length) continue;
 
         ctx.beginPath();
-        let started = false;
-        for (let c = 0; c < cols; c++) {
-          const p = row[c];
-          if (!p) {
-            started = false;
-            continue;
-          }
-          if (!started) {
-            ctx.moveTo(p.x, p.y);
-            started = true;
-          } else {
-            ctx.lineTo(p.x, p.y);
-          }
+        ctx.moveTo(row[0].x, row[0].y);
+
+        for (let c = 0; c < row.length - 1; c++) {
+          const p1 = row[c];
+          const p2 = row[c + 1];
+          const midX = (p1.x + p2.x) * 0.5;
+          const midY = (p1.y + p2.y) * 0.5;
+          ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
         }
-        ctx.strokeStyle = `rgba(15, 23, 42, ${lineAlpha})`;
-        ctx.lineWidth = 0.65;
+
+        const last = row[row.length - 1];
+        ctx.lineTo(last.x, last.y);
+
+        ctx.strokeStyle = 'rgba(15, 23, 42, 0.065)';
+        ctx.lineWidth = 0.75;
         ctx.stroke();
       }
 
-      // Draw particle dots
-      for (let r = 0; r < rows; r++) {
+      // 2. Draw particle nodes at each wave intersection across the full screen
+      for (let r = 0; r < numRows; r++) {
         const row = grid[r];
-        for (let c = 0; c < cols; c++) {
+        for (let c = 0; c < row.length; c++) {
           const p = row[c];
-          if (!p) continue;
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
 
           if (p.isCrest) {
-            // Emerald/lime accent on wave crests
-            ctx.fillStyle = `rgba(101, 163, 13, ${Math.min(0.85, p.alpha * 1.8)})`;
+            // Emerald/lime accent on wave peaks
+            ctx.fillStyle = `rgba(101, 163, 13, ${Math.min(0.85, p.alpha * 1.9)})`;
           } else {
-            // High-contrast slate dots on white surface
+            // Slate particle dots on crisp white surface
             ctx.fillStyle = `rgba(15, 23, 42, ${p.alpha})`;
           }
           ctx.fill();

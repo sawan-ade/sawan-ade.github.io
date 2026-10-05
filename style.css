@@ -327,14 +327,7 @@ nav {
 }
 
 .hero-canvas {
-  position: absolute;
-  top: 0;
-  right: -5%;
-  width: 55%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0.65;
-  z-index: 0;
+  display: none;
 }
 
 .hero-content {
