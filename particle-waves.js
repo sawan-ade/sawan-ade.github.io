@@ -70,19 +70,19 @@
 
       const dt = Math.min((now - lastTime) / 1000, 0.1);
       lastTime = now;
-      baseTime += dt * 1.15;
+      baseTime += dt * 0.32; // Smooth, slow ambient pace
 
       // Smooth mouse interpolation
       if (targetMouseX > -500) {
-        mouseX += (targetMouseX - mouseX) * 0.08;
-        mouseY += (targetMouseY - mouseY) * 0.08;
+        mouseX += (targetMouseX - mouseX) * 0.04;
+        mouseY += (targetMouseY - mouseY) * 0.04;
       } else {
-        mouseX += (-1000 - mouseX) * 0.08;
-        mouseY += (-1000 - mouseY) * 0.08;
+        mouseX += (-1000 - mouseX) * 0.04;
+        mouseY += (-1000 - mouseY) * 0.04;
       }
 
       // Smooth scroll parallax
-      scrollY += (targetScrollY - scrollY) * 0.08;
+      scrollY += (targetScrollY - scrollY) * 0.05;
 
       ctx.clearRect(0, 0, width, height);
 
@@ -92,7 +92,7 @@
       const numRows = Math.ceil(height / stepY) + 3;
       const numCols = Math.ceil(width / stepX) + 3;
 
-      const time = baseTime + scrollY * 0.0018;
+      const time = baseTime + scrollY * 0.0007;
 
       const grid = [];
 
@@ -104,13 +104,13 @@
         for (let c = 0; c < numCols; c++) {
           const x0 = (c - 1) * stepX;
 
-          // Multi-octave sinusoidal wave equation
-          const w1 = Math.sin(x0 * 0.0045 + time * 1.3) * Math.cos(y0 * 0.0055 + time * 0.95) * 26;
-          const w2 = Math.sin((x0 + y0) * 0.0032 + time * 0.8) * 16;
-          const w3 = Math.cos(x0 * 0.0026 - time * 0.55) * 11;
+          // Multi-octave sinusoidal wave equation (gentle, harmonic slow flow)
+          const w1 = Math.sin(x0 * 0.004 + time * 0.8) * Math.cos(y0 * 0.005 + time * 0.6) * 24;
+          const w2 = Math.sin((x0 + y0) * 0.003 + time * 0.5) * 15;
+          const w3 = Math.cos(x0 * 0.0024 - time * 0.35) * 10;
           const waveHeight = w1 + w2 + w3;
 
-          // Mouse dynamic ripple
+          // Mouse dynamic ripple (gentle, smooth)
           let mouseRipple = 0;
           if (mouseX > -500) {
             const dx = x0 - mouseX;
@@ -118,14 +118,14 @@
             const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < 340) {
               const factor = (1 - dist / 340);
-              mouseRipple = Math.sin(dist * 0.024 - time * 3.6) * 22 * factor * factor;
+              mouseRipple = Math.sin(dist * 0.02 - time * 1.5) * 16 * factor * factor;
             }
           }
 
-          const px = x0 + Math.sin(y0 * 0.0045 + time * 0.9) * 8;
+          const px = x0 + Math.sin(y0 * 0.004 + time * 0.6) * 7;
           const py = y0 + waveHeight + mouseRipple;
 
-          const isCrest = waveHeight > 10;
+          const isCrest = waveHeight > 9;
           const normalizedElev = Math.max(0, Math.min(1, (waveHeight + 40) / 80));
           const radius = Math.max(0.9, 1.2 + normalizedElev * 1.4);
           const alpha = Math.max(0.08, Math.min(0.42, 0.18 + normalizedElev * 0.24));
