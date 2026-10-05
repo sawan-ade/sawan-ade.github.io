@@ -233,11 +233,11 @@ function setupSingleCanvas(canvas) {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       if (this.isAccent) {
-        ctx.fillStyle = '#c7ff4a';
-        ctx.shadowColor = '#c7ff4a';
-        ctx.shadowBlur = 6;
+        ctx.fillStyle = '#65a30d';
+        ctx.shadowColor = '#65a30d';
+        ctx.shadowBlur = 5;
       } else {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.35)';
         ctx.shadowBlur = 0;
       }
       ctx.fill();
@@ -264,14 +264,14 @@ function setupSingleCanvas(canvas) {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < 110) {
-          const alpha = (1 - dist / 110) * 0.18;
+          const alpha = (1 - dist / 110) * 0.16;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
           if (particles[i].isAccent || particles[j].isAccent) {
-            ctx.strokeStyle = `rgba(199, 255, 74, ${alpha * 1.5})`;
+            ctx.strokeStyle = `rgba(101, 163, 13, ${alpha * 1.6})`;
           } else {
-            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+            ctx.strokeStyle = `rgba(15, 23, 42, ${alpha})`;
           }
           ctx.lineWidth = 0.8;
           ctx.stroke();
