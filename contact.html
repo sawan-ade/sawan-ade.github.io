@@ -155,7 +155,17 @@
               <textarea class="form-textarea" id="senderMessage" placeholder="Hello Sawan, I came across your work on Agentic AI and would like to connect regarding..." required></textarea>
             </div>
 
-            <button type="submit" class="btn main full-width">Compose Email <span class="btn-arrow">↗</span></button>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+              <button type="button" onclick="composeViaGmail()" class="btn main" style="flex:1; justify-content:center;">
+                Open in Gmail <span class="btn-arrow">↗</span>
+              </button>
+              <button type="submit" class="btn" style="flex:1; justify-content:center;" title="Launch default email client (mailto)">
+                Default App <span class="btn-arrow">✉</span>
+              </button>
+              <button type="button" onclick="copyMailDraft()" class="btn subtle" style="padding:10px 14px;" title="Copy note and recipient to clipboard">
+                Copy 📋
+              </button>
+            </div>
           </form>
         </div>
 

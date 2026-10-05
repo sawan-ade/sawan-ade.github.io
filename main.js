@@ -284,3 +284,61 @@ function setupSingleCanvas(canvas) {
 
   render();
 }
+
+/* ==========================================================================
+   MAIL COMPOSITION SYSTEM (GMAIL WEB + MAILTO + CLIPBOARD FALLBACK)
+   ========================================================================== */
+window.getMailData = function() {
+  const nameInput = document.getElementById('senderName') || document.getElementById('v2SenderName');
+  const subInput = document.getElementById('senderSubject') || document.getElementById('v2SenderSub');
+  const msgInput = document.getElementById('senderMessage') || document.getElementById('v2SenderMsg');
+
+  const name = nameInput ? nameInput.value.trim() : '';
+  const sub = subInput && subInput.value.trim() ? subInput.value.trim() : 'Research / Collaboration Inquiry';
+  const msg = msgInput ? msgInput.value.trim() : '';
+  const email = 'adeysawan@gmail.com';
+  const fullBody = name ? `From: ${name}\n\n${msg}` : msg;
+
+  return { email, sub, fullBody, name, msg };
+};
+
+window.composeViaGmail = function() {
+  const { email, sub, fullBody, msg } = window.getMailData();
+  if (!msg) {
+    if (window.showToast) window.showToast('Please type a message first!');
+    return;
+  }
+  const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(sub)}&body=${encodeURIComponent(fullBody)}`;
+  window.open(url, '_blank');
+  if (window.showToast) window.showToast('Opened in Gmail! ✉');
+};
+
+window.copyMailDraft = function() {
+  const { email, sub, fullBody, msg } = window.getMailData();
+  if (!msg) {
+    if (window.showToast) window.showToast('Please type a message first!');
+    return;
+  }
+  const draftText = `To: ${email}\nSubject: ${sub}\n\n${fullBody}`;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(draftText).then(() => {
+      if (window.showToast) window.showToast('Full message & address copied! 📋');
+    });
+  }
+};
+
+window.handleMailCompose = function(e) {
+  if (e) e.preventDefault();
+  const { email, sub, fullBody, msg } = window.getMailData();
+  if (!msg) {
+    if (window.showToast) window.showToast('Please type a message first!');
+    return;
+  }
+  const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(fullBody)}`;
+  window.location.href = mailtoUrl;
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(`To: ${email}\nSubject: ${sub}\n\n${fullBody}`).catch(() => {});
+  }
+  if (window.showToast) window.showToast('Opening default mail client... (Draft copied 📋)');
+};
